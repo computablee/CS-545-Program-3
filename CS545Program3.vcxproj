@@ -19,7 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="list.c" />
     <ClCompile Include="Source.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="list.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{c6c9febc-0f61-4290-900a-5cd5a543225a}</ProjectGuid>
