@@ -33,6 +33,7 @@
 #include <stdbool.h>
 #include <GL/glew.h>
 #include <GL/freeglut.h>
+#include "list.h"
 
 //Handler for drawing the scene
 void drawScene(void)
@@ -52,7 +53,7 @@ void resize(int width, int height)
 	glViewport(0, 0, width, height);
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	glOrtho(0.0, 500.0, 0.0, 500.0, -100.0, 100.0);
+	gluPerspective(90, 1.0, 5.0, 100.0);
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 }
@@ -60,7 +61,10 @@ void resize(int width, int height)
 //Set up the vertex array for drawing
 void setup(void)
 {
-	
+	glPolygonMode(GL_FRONT, GL_LINE);
+	glPolygonMode(GL_BACK, GL_FILL);
+	glPointSize(5.0);
+	srand(time(NULL));
 }
 
 //Handler for ASCII input
