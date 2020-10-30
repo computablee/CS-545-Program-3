@@ -2,6 +2,8 @@
 #include <stddef.h>
 
 //this is the one I decided to move to for no reason other than i hated using a linked list
+//and also I suppose it's significantly cleaner and a lot faster
+//now that I think about it this implementation is just overall better in every way
 
 typedef struct
 {
