@@ -9,7 +9,7 @@ void insert_back(list* list, void* item, size_t datasize)
 
 	if (list->length == list->allocated_length)
 	{
-		void** newlist = malloc(sizeof(void**) * (list->allocated_length + 8));
+		void** newlist = malloc(sizeof(void**) * (list->allocated_length * 2));
 		for (unsigned int i = 0; i < list->length; i++)
 			memcpy(newlist, list->data, sizeof(void**) * list->length);
 		free(list->data);
@@ -17,7 +17,7 @@ void insert_back(list* list, void* item, size_t datasize)
 		list->allocated_length += 8;
 	}
 
-	memcpy(&list->data[list->length], &data, sizeof(void*));
+	list->data[list->length] = data;
 	list->length++;
 }
 
