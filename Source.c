@@ -136,7 +136,7 @@ void drawScene(void)
 
 	//if we have a live cursor, draw the shape that the user would draw if they pressed space
 	if (live_cursor)
-		draw_shape((drawn_shape) { .brush = brush, .color = current_color, .location = cursor });
+		draw_shape((drawn_shape) { .brush = brush, .color = (color) { 0.0f, 0.0f, 0.0f } , .location = cursor });
 	//otherwise draw that point
 	else
 	{
