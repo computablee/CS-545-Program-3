@@ -76,7 +76,7 @@ typedef struct
 cursor_location cursor;
 color current_color;
 brushes brush;
-linked_list shapes;
+list shapes;
 GLenum triangle_orientation;
 bool live_cursor;
 
@@ -130,16 +130,9 @@ void drawScene(void)
 	//clear everything
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	//get the number of shapes and a pointer to the head
-	const unsigned int shapes_count = get_length(shapes);
-	ll_node* node = get_item_ptr(shapes, 0);
-
 	//traverse the list and draw all the shapes
-	for (unsigned int i = 0; i < shapes_count; i++)
-	{
-		draw_shape(*(drawn_shape*)node->data);
-		node = node->next;
-	}
+	for (unsigned int i = 0; i < shapes.length; i++)
+		draw_shape(*(drawn_shape*)shapes.data[i]);
 
 	//if we have a live cursor, draw the shape that the user would draw if they pressed space
 	if (live_cursor)

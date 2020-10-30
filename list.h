@@ -1,27 +1,15 @@
 #pragma once
-#include <ctype.h>
+#include <stddef.h>
 
-//this is a header file, look in list.c for explanations for all the functions
+//this is the one I decided to move to for no reason other than i hated using a linked list
 
-//definition for a node, contains a void pointer to the data it contains and a pointer to the next node
-//the void pointer is so that i had a reason to call this a "generic linked list library" that's not limited to
-//storing brush data
-typedef struct ll_node
-{
-	void* data;
-	struct ll_node* next;
-} ll_node;
-
-//coulda also probably just done
-//typedef ll_node* linked_list
 typedef struct
 {
-	ll_node* first;
-} linked_list;
+	unsigned int length;
+	unsigned int allocated_length;
+	void** data;
+} list;
 
-void insert_back(linked_list* list, void* item, size_t datasize);
-ll_node get_item(linked_list list, unsigned int index);
-ll_node* get_item_ptr(linked_list list, unsigned int index);
-unsigned int get_length(linked_list list);
-void free_list(linked_list* list);
-void init_list(linked_list* list);
+void insert_back(list* list, void* item, size_t datasize);
+void free_list(list* list);
+void init_list(list* list);
