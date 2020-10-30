@@ -14,7 +14,7 @@ void insert_back(list* list, void* item, size_t datasize)
 			memcpy(newlist, list->data, sizeof(void**) * list->length);
 		free(list->data);
 		list->data = newlist;
-		list->allocated_length += 8;
+		list->allocated_length *= 2;
 	}
 
 	list->data[list->length] = data;
