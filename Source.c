@@ -182,6 +182,11 @@ void resize(int width, int height)
 //Set up everything
 void setup(void)
 {
+	//set up depth testing
+	//commented out because it SOMEHOW causes the pointer to not render (not the live cursor, just the one rendered with GL_POINTS)
+	//i have no idea why this happens, but would love if you could explain what's going on
+	//glEnable(GL_DEPTH_TEST);
+
 	//set the polygon modes and point size
 	glPolygonMode(GL_FRONT, GL_LINE);
 	glPolygonMode(GL_BACK, GL_FILL);
